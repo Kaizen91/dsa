@@ -1,5 +1,6 @@
 import unittest
-from linked_list import DoublyLinkedList
+#from linked_list import DoublyLinkedList
+from quiz import DoublyLinkedList
 
 class TestDoublyLinkedList(unittest.TestCase):
     def setUp(self):

@@ -26,28 +26,34 @@ def quicksort(arr: list, lo: int, hi: int) -> None:
     quicksort(arr, lo, pivot_idx - 1)
     quicksort(arr, pivot_idx + 1, hi)
 
-def merge(arr1: list, arr2: list) -> list:
-    res = []
-    i: int = 0 #pointer for arr1
-    j: int = 0 #pointer for arr2
-    while i < len(arr1) and j < len(arr2):
-        if arr1[i] < arr2[j]:
-            res.append(arr1[i])
+def merge(arr: list[int], lo: int, mid: int, hi: int) -> None:
+    L: list[int] = arr[lo:mid]
+    R: list[int] = arr[mid:hi]
+    L.append(float('inf'))
+    R.append(float('inf'))
+    i: int
+    j: int
+    i = j = 0
+    for k in range(lo, hi):
+        if L[i] <= R[j]:
+            arr[k] = L[i]
             i += 1
         else:
-            res.append(arr2[j])
+            arr[k] = R[j]
             j += 1
-    res.extend(arr1[i:])
-    res.extend(arr2[j:])
-    return res
 
-def mergesort(arr: list) -> list:
-    if len(arr) == 1:
-        return arr
-    split: int = len(arr) // 2
-    arr1 = mergesort(arr[:split])
-    arr2 = mergesort(arr[split:])
-    return merge(arr1, arr2)
+def mergesort(arr: list) -> None:
+    hi: int = len(arr)
+    lo: int = 0
+    mergesort_recursive(arr, lo, hi)
+    
+def mergesort_recursive(arr, lo: int, hi: int) -> None:
+    if hi - lo > 1:
+        mid: int = (hi + lo) // 2
+        mergesort_recursive(arr, lo, mid)
+        mergesort_recursive(arr, mid, hi)
+        merge(arr, lo, mid, hi)
+
 
 if __name__ == '__main__':
     arr = [randint(0,10) for _ in range(10)]

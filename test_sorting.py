@@ -15,8 +15,8 @@ class TestSort(unittest.TestCase):
         self.assertEqual(self.arr, self.sorted)
 
     def test_mergesort(self):
-        res = mergesort(self.arr)
-        self.assertEqual(res, self.sorted)
+        mergesort(self.arr)
+        self.assertEqual(self.arr, self.sorted)
         
 if __name__ == '__main__':
     unnittest.main()

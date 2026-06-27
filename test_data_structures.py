@@ -1,5 +1,6 @@
 import unittest
-from data_structures import Queue, Stack
+#from data_structures import Queue, Stack
+from quiz import Queue, Stack
 
 class TestQueue(unittest.TestCase):
     def setUp(self):

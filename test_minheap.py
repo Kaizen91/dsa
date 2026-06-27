@@ -1,5 +1,6 @@
 import unittest
-from min_heap import MinHeap
+#from min_heap import MinHeap
+from quiz import MinHeap
 
 class TestMinHeap(unittest.TestCase):
     def setUp(self):

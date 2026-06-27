@@ -1,6 +1,6 @@
 import unittest
 #from graph import Graph
-from quiz_graph import Graph
+from quiz import Graph
 from collections import namedtuple
 
 Edge = namedtuple('Edge', ['v', 'weight'])

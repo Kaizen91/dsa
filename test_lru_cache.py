@@ -1,5 +1,6 @@
 import unittest
-from lru_cache import LRU
+#from lru_cache import LRU
+from quiz import LRU
 
 class TestLRU(unittest.TestCase):
     def setUp(self):
